@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="VerifyView">
+        <attr name="verifyLength" format="integer"/>
+        <attr name="verifyTextSize" format="dimension"/>
+        <attr name="verifyTextColor" format="color"/>
+        <attr name="verifyStrokeGap" format="dimension"/>
+        <attr name="verifyStrokeHeight" format="dimension"/>
+        <attr name="verifyStrokeColorNotInput" format="color"/>
+        <attr name="verifyStrokeColorFilled" format="color"/>
+    </declare-styleable>
+</resources>

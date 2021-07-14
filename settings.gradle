@@ -1,0 +1,3 @@
+include ':verifyview'
+include ':app'
+rootProject.name = "custom"
