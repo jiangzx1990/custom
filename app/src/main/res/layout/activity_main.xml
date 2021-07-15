@@ -39,7 +39,8 @@
             app:verifyTextColor="#0f0"
             app:verifyStrokeColorNotInput="#f00"
             app:verifyStrokeColorFilled="#0f0"
-            app:verifyStrokeHeight="2dp"/>
+            app:verifyStrokeHeight="2dp"
+            app:verifySolidCircleSize="10dp"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_h_08"

@@ -8,3 +8,22 @@
 
 ![](com.jzx.android.custom.verifyView.jpg)
 
+
+
+自定义属性：
+
+```xml
+<declare-styleable name="VerifyView">
+        <attr name="verifyLength" format="integer"/>
+        <attr name="verifyTextSize" format="dimension"/>
+        <attr name="verifyTextColor" format="color"/>
+        <attr name="verifySolidCircleSize" format="dimension"/>
+        <attr name="verifyStrokeGap" format="dimension"/>
+        <attr name="verifyStrokeHeight" format="dimension"/>
+        <attr name="verifyStrokeColorNotInput" format="color"/>
+        <attr name="verifyStrokeColorFilled" format="color"/>
+    </declare-styleable>
+```
+
+
+

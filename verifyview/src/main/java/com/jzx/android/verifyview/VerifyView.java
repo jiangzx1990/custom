@@ -22,6 +22,7 @@ import androidx.annotation.Nullable;
 
 public class VerifyView extends View {
     private int textSize;//default 24dp
+    private final int solidCircleSize;
 
     private int strokeWidth;
     private int strokeColorNotInput = 0xffe4e4e4;
@@ -58,6 +59,9 @@ public class VerifyView extends View {
         strokeGap = array.getDimensionPixelOffset(R.styleable.VerifyView_verifyStrokeGap,strokeGap);
         strokeHeight = array.getDimensionPixelOffset(R.styleable.VerifyView_verifyStrokeHeight,strokeHeight);
         verifyCodeLength = array.getInteger(R.styleable.VerifyView_verifyLength,verifyCodeLength);
+
+        solidCircleSize = array.getDimensionPixelOffset(R.styleable.VerifyView_verifySolidCircleSize,0);
+
         array.recycle();
 
         if (verifyCodeLength < 1){
@@ -89,7 +93,11 @@ public class VerifyView extends View {
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         if (heightMode == MeasureSpec.AT_MOST || heightMode == MeasureSpec.UNSPECIFIED){
             Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-            height = (int) (fontMetrics.bottom - fontMetrics.top) + strokeHeight;
+            if (solidCircleSize == 0){
+                height = (int) (fontMetrics.bottom - fontMetrics.top) + strokeHeight;
+            }else{
+                height = solidCircleSize * 2 + strokeHeight;
+            }
         }
 
         setMeasuredDimension(width,height);
@@ -117,6 +125,14 @@ public class VerifyView extends View {
             canvas.drawLine(start.x, start.y,end.x,end.y,strokePaint);
         }
 
+        if (solidCircleSize == 0){
+            drawText(canvas);
+        }else{
+            drawBitmap(canvas);
+        }
+    }
+
+    private void drawText(Canvas canvas){
         String text;
         //画文字
         for (int i = 0 ,length = inputs.length() ; i < length ; i++){
@@ -127,6 +143,17 @@ public class VerifyView extends View {
                     textPaint);
         }
     }
+
+    private void drawBitmap(Canvas canvas){
+        textPaint.setColor(strokeColorFilled);
+        for (int i = 0,length = inputs.length() ; i < length ; i++){
+            canvas.drawCircle((strokeWidth * i) + (strokeGap * i) + strokeWidth / 2.0f - solidCircleSize /2.0f,
+                    getMeasuredHeight() / 2.0f,
+                    solidCircleSize / 2.0f,
+                    textPaint);
+        }
+    }
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {

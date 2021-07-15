@@ -4,6 +4,7 @@
         <attr name="verifyLength" format="integer"/>
         <attr name="verifyTextSize" format="dimension"/>
         <attr name="verifyTextColor" format="color"/>
+        <attr name="verifySolidCircleSize" format="dimension"/>
         <attr name="verifyStrokeGap" format="dimension"/>
         <attr name="verifyStrokeHeight" format="dimension"/>
         <attr name="verifyStrokeColorNotInput" format="color"/>
